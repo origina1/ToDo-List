@@ -1,0 +1,36 @@
+#app {
+    background-color: whitesmoke; 
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.page {
+    width: 800px;
+    padding: 10px 10px 10px 10px;
+}
+
+.task {
+    background-color: #F0FFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0px 0px 0px 10px;
+}
+
+.checked {
+    background: #F0FFF0;
+    text-decoration: line-through;
+}
+
+button.btn-task-del {
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: #FA8072;
+    color: #000000;
+}
+
