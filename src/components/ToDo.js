@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form, FormGroup, Col, FormControl, ControlLabel, Panel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 
-class ToDo extends React.Component {
+class ToDo extends React.PureComponent {
     state = {
         taskText: '',
         tasks: []
@@ -18,8 +18,12 @@ class ToDo extends React.Component {
     addTaskElement = (e) => {
         e.preventDefault();     
         if (this.state.taskText !== '') {
-            let arr = this.state.tasks;
-            arr.push(this.state.taskText);
+            //мутирует старый массив, в связи с чем state остаётся тем же. Не работает с PureComponent
+            // let arr = this.state.tasks;
+            // arr.push(this.state.taskText);
+
+            //возвращает новый массив, который присваивается в state
+            const arr = this.state.tasks.concat(this.state.taskText);
             this.setState({
                 tasks: arr,
                 taskText: ''
@@ -28,8 +32,17 @@ class ToDo extends React.Component {
     };
 
     delTaskElement = (e) => {
-        let arr = this.state.tasks;
-        delete arr[e.target.id];
+        //мутирует старый массив, в связи с чем state остаётся тем же. Не работает с PureComponent
+        // let arr = this.state.tasks;
+        // delete arr[e.target.id];
+
+        const arr = this.state.tasks.filter((item, index) => {
+            // if (index !== e.target.id) {
+            //     return item;
+            // } 
+            return e.target.id == index ? false : item;
+        });
+        console.info(arr);
         this.setState({
             tasks: arr
         });
