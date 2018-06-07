@@ -12,7 +12,8 @@ class TaskCreator extends React.Component {
     handleClick = (elem) => {
         elem.preventDefault();
         if (this.props.state.todosState.text !== '') {
-            this.props.addTask(this.props.state.todosState.text);
+            let id = ++this.props.state.todosState.counter;
+            this.props.addTask(this.props.state.todosState.text, id);
         } 
     }
 

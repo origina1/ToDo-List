@@ -6,11 +6,11 @@ import {delTask} from '../actions/delTask';
 class TasksList extends React.Component {
     showTasks() {
         if (this.props.state.todosState.todos !== []) {
-            return this.props.state.todosState.todos.map((task, id) => {
+            return this.props.state.todosState.todos.map((task, index) => {
                 return (
-                    <div key={id} className='task'>
-                        <Task taskName={task.taskName} />
-                        <button className='del-button' id={id} onClick={this.props.delTask}>Удалить</button>
+                    <div key={index} className='task'>
+                        <Task taskName={task.taskName}/>
+                        <button className='del-button' id={task.id} onClick={this.props.delTask}>Удалить</button>
                     </div>
                 );
             });

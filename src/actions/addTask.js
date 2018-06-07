@@ -1,8 +1,8 @@
-export const addTask = (taskName) => {
+export const addTask = (taskName, id) => {
     return {
         type: 'TASK_ADD',
         payload: {
-            taskName: taskName,
+            taskName,
             status: true,
             id
         }
