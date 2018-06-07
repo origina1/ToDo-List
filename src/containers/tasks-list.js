@@ -8,7 +8,10 @@ class TasksList extends React.Component {
         if (this.props.state.todosState.todos !== []) {
             return this.props.state.todosState.todos.map((task, id) => {
                 return (
-                    <Task key={id} id={id} taskName={task.taskName} />
+                    <div key={id} className='task'>
+                        <Task taskName={task.taskName} />
+                        <button className='del-button' id={id} onClick={this.props.delTask}>Удалить</button>
+                    </div>
                 );
             });
         }

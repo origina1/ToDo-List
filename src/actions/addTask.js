@@ -3,7 +3,8 @@ export const addTask = (taskName) => {
         type: 'TASK_ADD',
         payload: {
             taskName: taskName,
-            status: true
+            status: true,
+            id
         }
     };   
 };
