@@ -1,18 +1,87 @@
-#app {
+body {
     background-color: whitesmoke; 
 }
 
+#app {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Roboto', monospace;
+    font-size: 1.2em;
+}
+.header {
+    margin-left: auto;
+    margin-right: auto;
+}
 .container {
+    width: 80%;
+    display: flex;
+    flex-flow: column;  
+    margin-left: auto;
+    margin-right: auto; 
+}
+.input {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.input-text {
+    width: 300px;
+    padding: 8px 20px;
+    margin: 8px 8px;
+    box-sizing: border-box;
+    font-size: 0.8em;
+}
+.tasks-list {
     display: flex;
     flex-flow: column;
     justify-content: center;
+    align-items: center;
+}
+.task {
+    width: 600px;
+    background-color: #FFF8DC;
+    margin: 0.3% 0%;
+    padding: 0% 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    margin: 5px 10px;
+    padding: 8px 5px;
+    background-color: #F4A460;
+    color: #2F4F4F;
+    font-size: 0.8em;
+    width: 170px;
+    height: 100%;
+}
+button:hover {
+    background-color: #CD853F;
 }
 
-.page {
-    width: 800px;
-    padding: 10px 10px 10px 10px;
+button.add-button {
+    background-color: #20B2AA;
+    color: #2F4F4F;
 }
-
+button.add-button:hover {
+    background-color: #006400;
+    color: #F5F5F5;
+}
+button.del-button {
+    background-color: #FA8072;
+    color: #000000;
+    width: 100px;
+}
+button.del-button:hover {
+    background-color: #DC143C;
+}
+/* 
 .task {
     background-color: #F0FFFF;
     display: flex;
@@ -26,11 +95,4 @@
     background: #F0FFF0;
     text-decoration: line-through;
 }
-
-button.btn-task-del {
-    margin-top: 5px;
-    margin-right: 5px;
-    background-color: #FA8072;
-    color: #000000;
-}
-
+*/

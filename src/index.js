@@ -1,12 +1,24 @@
 import './css/style.css';
 import React from 'react';
 import { render } from 'react-dom';
-import ToDo from './components/ToDo.js';
-// import "bootstrap/dist/css/bootstrap.css";
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import allReducers from './reducers';
+import Header from './components/Header';
+import TaskCreator from './components/TaskCreactor';
+import TasksList from './containers/tasks-list';
+import Filters from './components/Filters';
+
+const store = createStore(allReducers);
 
 render (
-        <div className='container'>
-           <ToDo />
-        </div>,
+        <Provider store={store}>
+            <div className='container'>
+                <Header />
+                <TaskCreator />
+                <TasksList />
+                <Filters />
+            </div>
+        </Provider>,
     document.getElementById('app')
 );
