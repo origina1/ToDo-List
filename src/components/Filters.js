@@ -1,18 +1,31 @@
 import React from 'react';
-import FilterAll from './FilterAll';
-import FilterCompleted from './FilterCompleted';
-import FilterUncompleted from './FilterUncompleted';
+import {connect} from 'react-redux';
+import {filterAll} from '../actions/filterAll';
+import {filterCompleted} from '../actions/filterCompleted';
+import {filterUncompleted} from '../actions/filterUncompleted';
 
 class Filters extends React.Component {
     render() {
         return (
             <div className='filters'>
-                <FilterAll />
-                <FilterCompleted />
-                <FilterUncompleted />
+                <button onClick={this.props.filterAll}>Фильтр: все</button>
+                <button onClick={this.props.filterCompleted}>Фильтр: сделано</button>
+                <button onClick={this.props.filterUncompleted}>Фильтр: не сделано</button>
             </div>
         );
     }
 }
 
-export default Filters;
+function mapStateToProps(todosState) {
+    return {
+        state: todosState
+    };
+}
+
+const mapDispatchToProps = {
+    filterAll,
+    filterCompleted,
+    filterUncompleted
+}
+
+export default connect (mapStateToProps, mapDispatchToProps) (Filters);

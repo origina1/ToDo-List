@@ -8,7 +8,7 @@ class Task extends React.Component {
     
     render() {
         return (
-                <div>{this.props.taskName}</div>
+                <div data-task='task'>{this.props.taskName}</div>
         );
     }
 }
