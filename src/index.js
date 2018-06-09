@@ -5,9 +5,9 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import allReducers from './reducers';
 import Header from './components/Header';
-import TaskCreator from './components/TaskCreactor';
+import TaskCreator from './containers/TaskCreactor';
 import TasksList from './containers/tasks-list';
-import Filters from './components/Filters';
+import Filters from './containers/Filters';
 
 const store = createStore(allReducers);
 

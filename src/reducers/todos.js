@@ -24,7 +24,7 @@ export default function (state = initialState, action) {
     } else if (action.type === "TASK_DELETE") {
         // console.log('привет из reducer TASK_DELETE. id= '+ action.payload.id);
         const arr = state.todos.filter((item) => {
-            return +action.payload.id === item.id ? false : item;
+            return +action.payload.id !== item.id;
         });
         const arrCache = state.todosCache.filter((item) => {
             return +action.payload.id === item.id ? false : item;
@@ -38,8 +38,10 @@ export default function (state = initialState, action) {
     } else if (action.type === "CHANGE_TASK_STATUS") {
         const arr = state.todos.map((item) => {
             if (+action.payload.id === item.id) {
-                item.status = !action.payload.status;
-                return item;
+                return {
+                    ...item,
+                    status: !action.payload.status, 
+                }
             } else return item;
         });
         const arrCache = state.todosCache.map((item) => {
@@ -53,7 +55,8 @@ export default function (state = initialState, action) {
             todos: arr,
             todosCache: arrCache
         };
-    } else if (action.type === "FILTER_ALL") {
+    } 
+    else if (action.type === "FILTER_ALL") {
         const arrCache = state.todosCache.concat();
         console.log('reducer FilterALL');
         return {
