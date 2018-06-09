@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { createSelector } from 'reselect';
 import {addTask} from '../actions/addTask';
 import {saveInputText} from '../actions/saveInputText';
-
 
 class TaskCreator extends React.Component {
     handleChange = (event) => {

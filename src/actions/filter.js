@@ -1,5 +1,7 @@
-export const filter = (type) => {
+export const setFilter = (filterType) => {
     return {
-        type
+        type: 'SET_FILTER',
+        payload: filterType
     };   
 };
+

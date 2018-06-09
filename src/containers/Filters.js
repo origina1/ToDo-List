@@ -1,31 +1,25 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {filter} from '../actions/filter';
+import {setFilter} from '../actions/filter';
 
-class Filters extends React.Component {
+class Filters extends React.PureComponent {
     handleClick = (event) => {
-        this.props.filter(event.target.id);
+        this.props.setFilter(event.target.id);
     }
 
     render() {
         return (
             <div className='filters'>
-                <button id="FILTER_ALL" onClick={this.handleClick}>Фильтр: все</button>
-                <button id="FILTER_COMPLETED" onClick={this.handleClick}>Фильтр: сделано</button>
-                <button id="FILTER_UNCOMPLETED" onClick={this.handleClick}>Фильтр: не сделано</button>
+                <button id="SHOW_ALL" onClick={this.handleClick}>Фильтр: все</button>
+                <button id="SHOW_COMPLETED" onClick={this.handleClick}>Фильтр: сделано</button>
+                <button id="SHOW_UNCOMPLETED" onClick={this.handleClick}>Фильтр: не сделано</button>
             </div>
         );
     }
 }
 
-function mapStateToProps(todosState) {
-    return {
-        state: todosState
-    };
-}
-
 const mapDispatchToProps = {
-    filter
+    setFilter
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (Filters);
+export default connect (null, mapDispatchToProps) (Filters);

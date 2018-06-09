@@ -3,11 +3,12 @@ import {connect} from 'react-redux';
 import Task from '../components/Task';
 import {delTask} from '../actions/delTask';
 import {changeTaskStatus} from '../actions/changeTaskStatus';
+import { getVisibleTodos } from '../selector';
 
 class TasksList extends React.Component {
     showTasks() {
-        if (this.props.state.todosState.todos !== []) {
-            return this.props.state.todosState.todos.map((task, index) => {
+
+            return this.props.todos.map((task, index) => {
                 return (
                     <div
                         className={task.status ? 'task checked' : 'task'}
@@ -26,7 +27,7 @@ class TasksList extends React.Component {
                     </div>
                 );
             });
-        }
+
     }
     render() {
         return (
@@ -37,9 +38,9 @@ class TasksList extends React.Component {
     }
 }
 
-function mapStateToProps(todosState) {
+function mapStateToProps(state) {
     return {
-        state: todosState
+        todos: getVisibleTodos(state)
     };
 }
 
