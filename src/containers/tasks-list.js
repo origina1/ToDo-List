@@ -7,14 +7,11 @@ import { getVisibleTodos } from '../selector';
 
 class TasksList extends React.Component {
     showTasks() {
-
             return this.props.todos.map((task, index) => {
                 return (
                     <div
                         className={task.status ? 'task checked' : 'task'}
                         key={index} 
-                        data-status={task.status}
-                        data-id={task.id}
                         onClick={() => this.props.changeTaskStatus(task.id, task.status)}
                     >
                         <Task taskName={task.taskName}/>
@@ -27,7 +24,6 @@ class TasksList extends React.Component {
                     </div>
                 );
             });
-
     }
     render() {
         return (
